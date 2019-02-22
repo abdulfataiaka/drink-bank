@@ -1,0 +1,30 @@
+#nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: right;
+  padding: 5px 0;
+  height: 30px;
+  overflow: hidden;
+  background: $brand-color;
+
+  a {
+    &:link {
+      text-decoration: none;
+    }
+
+    span {
+      display: inline-block;
+      margin: 0 5px 0 10px;
+      color: white;
+      font-size: 11px;
+    }
+  }
+}
+
+#spacer {
+  display: block;
+  height: 30px;
+  overflow: hidden;
+}

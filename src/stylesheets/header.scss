@@ -1,0 +1,33 @@
+#header {
+  display: block;
+  width: 100%;
+  background: $brand-color;
+  overflow: hidden;
+  padding: 0 0 40px;
+
+  h5 {
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  h6 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 11px;
+    color: white;
+  }
+
+  input {
+    display: block;
+    min-width: 300px;
+    width: 50%;
+    border: none;
+    font-size: 12px;
+    padding: 5px 10px;
+    outline: none;
+    margin: 15px auto 0;
+  }
+}
