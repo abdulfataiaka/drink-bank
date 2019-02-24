@@ -2,15 +2,18 @@ import React, { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Favorite from './Favorite/Index';
 import Home from './Home/Index';
+import Nav from './common/Nav';
+import Header from './common/Header';
+
 import '../stylesheets/main.scss';
-import Nav from './Nav';
 
 const App = () => (
   <Fragment>
     <Nav />
-    <div id="spacer" />
+    <Header />
+
     <Switch>
-      <Route exact path="/favorite" component={Favorite} />
+      <Route exact path="/favourite" component={Favorite} />
       <Route component={Home} />
     </Switch>
   </Fragment>
