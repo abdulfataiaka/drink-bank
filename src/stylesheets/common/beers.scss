@@ -91,3 +91,29 @@
     font-size: 12px;
   }
 }
+
+.modal-beer {
+  display: block;
+  float: left;
+  width: 29%;
+  margin: 0 2%;
+  border: 1px solid lightgray;
+  height: 190px;
+
+  img {
+    display: block;
+    margin: 15px auto 5px;
+    height: 100px;
+  }
+
+  span {
+    display: block;
+    text-align: center;
+    width: 80%;
+    line-height: 180%;
+    font-weight: 600;
+    color: gray;
+    margin: 0 auto;
+    font-size: 14px;
+  }
+}

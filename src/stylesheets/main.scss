@@ -2,12 +2,15 @@
 $brand-color: #f79400;
 
 // mixin declarations
-
-// function declarations
+@mixin clearfix {
+  display: block;
+  content: '';
+  clear: both;
+}
 
 // general styles declarations
 
-* {
+:not(ul):not(li) {
   margin: 0;
   padding: 0;
 }
@@ -51,3 +54,4 @@ html, body {
 @import './common/main';
 @import './home/main';
 @import './favourite/main';
+@import './beer_modal';
