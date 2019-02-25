@@ -50,6 +50,11 @@ html, body {
   }
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 // import other page styles
 @import './common/main';
 @import './home/main';

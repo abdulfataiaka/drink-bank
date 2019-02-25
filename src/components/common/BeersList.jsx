@@ -7,6 +7,7 @@ const BeersList = ({ beers }) => (
       { beers.map(beer => (
         <BeerCard
           key={beer.id}
+          id={beer.id}
           image={beer.image_url}
           name={beer.name}
           tagline={beer.tagline}

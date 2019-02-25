@@ -1,5 +1,15 @@
 import { fetchBeers } from '../api/beers';
-import { BEERS_FETCH_LOADING, BEERS_FETCH_SUCCESS, BEERS_FETCH_FAILURE } from './types';
+import {
+  BEERS_FETCH_LOADING,
+  BEERS_FETCH_SUCCESS,
+  BEERS_FETCH_FAILURE,
+  SET_BEER_ID
+} from './types';
+
+export const setBeerId = id => dispatch => dispatch({
+  type: SET_BEER_ID,
+  beerId: id || null
+});
 
 const getBeersLoad = () => ({
   type: BEERS_FETCH_LOADING
