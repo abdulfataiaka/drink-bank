@@ -1,7 +1,6 @@
 import React from 'react';
 import BeerCard from '../common/BeerCard';
 import Main from './Main';
-const image = "https://images.punkapi.com/v2/2.png";
 
 const View = ({ beer, onClose, baseBeers }) => (
   <div id="beer-modal" style={{ display: `${!!beer ? 'block': 'none'}` }}>
@@ -13,18 +12,18 @@ const View = ({ beer, onClose, baseBeers }) => (
         </button>
       </div>
 
-      <Main />
+      <Main beer={beer} />
 
       <div className="base">
         <h5>You might also like:</h5>
         <div>
-          { baseBeers.map(beer => (
+          { baseBeers.map(rBeer => (
             <BeerCard
               modal
-              key={beer.id}
-              id={beer.id}
-              image={beer.image_url}
-              name={beer.name}
+              key={rBeer.id}
+              id={rBeer.id}
+              image={rBeer.image_url}
+              name={rBeer.name}
             />
           ))}
         </div>

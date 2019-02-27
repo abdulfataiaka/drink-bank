@@ -43,18 +43,15 @@ class BeerModal extends Component {
 
   getBaseBeers(index) {
     const { beers } = this.props;
-    const length = beers.length;
     const indexes = this.genIndexes(index, beers.length - 1);
-
     return indexes.map(index => beers[index]);
   }
 
   render() {
     const { beerId } = this.props;
-    console.log(beerId);
     const { beer, baseBeers } = this.getModalInfo(beerId);
 
-    return (
+    return !beer ? null : (
       <View
         beer={beer}
         baseBeers={baseBeers}

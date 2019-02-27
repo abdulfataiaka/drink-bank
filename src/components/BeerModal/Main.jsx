@@ -1,46 +1,32 @@
 import React from 'react';
-const image = "https://images.punkapi.com/v2/2.png";
 
-const Main = (props) => (
+const Main = ({ beer }) => (
   <div className="second-level">
     <div className="image">
-      <img src={image} />
+      <img src={beer.image_url} />
     </div>
     <div className="details">
-      <h5>Trashy Blonde</h5>
-      <h6>You Know You Shouldn't</h6>
+      <h5>{ beer.name }</h5>
+      <h6>{ beer.tagline }</h6>
       <div className="line" />
       <div className="stats">
         <span className="key">IBU:</span>
-        <span className="value">14.5</span>
+        <span className="value">{ beer.ibu }</span>
 
         <span className="key">ABV:</span>
-        <span className="value">4.1%</span>
+        <span className="value">{ beer.abv }%</span>
 
         <span className="key">EBC:</span>
-        <span className="value">15</span>
+        <span className="value">{ beer.ebc }</span>
 
-        <p>
-          This is the section that describe the drink, though it is something
-          becoming normal which it is not supposed to be and that is a bad thing
-          that needs to be fixed.
-          This is the section that describe the drink, though it is something
-          becoming normal which it is not supposed to be and that is a bad thing
-          that needs to be fixed.
-          This is the section that describe the drink, though it is something
-          This is the section that describe the drink, though it is something
-          This is the section that describe the drink, though it is something
-          This is the section that describe the drink, though it is something
-        </p>
+        <p>{ beer.description }</p>
 
         <div className="best-served">
           <div>Best served with:</div>
           <ul>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
+            { beer.food_pairing.map((food, index) => (
+              <li key={index}>{ food }</li>
+            )) }
           </ul>
         </div>
       </div>
