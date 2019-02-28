@@ -1,14 +1,20 @@
 import { fetchBeers } from '../api/beers';
+
 import {
   BEERS_FETCH_LOADING,
   BEERS_FETCH_SUCCESS,
   BEERS_FETCH_FAILURE,
-  SET_BEER_ID
+  SET_BEER_ID,
+  UPDATE_HOME_BEERS
 } from './types';
 
 export const setBeerId = id => dispatch => dispatch({
   type: SET_BEER_ID,
   beerId: id || null
+});
+
+export const setHomeBeers = () => dispatch => dispatch({
+  type: UPDATE_HOME_BEERS
 });
 
 const getBeersLoad = () => ({
@@ -29,6 +35,7 @@ export const getBeers = () => dispatch => {
   fetchBeers().then(beers => {
     if (beers) {
       dispatch(getBeersSuccess(beers));
+      dispatch(setHomeBeers());
     }
     
     else {

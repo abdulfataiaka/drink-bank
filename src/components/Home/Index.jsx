@@ -1,103 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import PageWrap from '../common/PageWrap';
 import BeersList from '../common/BeersList';
-import Status from '../common/Status';
-import { getBeers } from '../../actions/beers';
+
+import { setHomeBeers } from '../../actions/beers';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.getFetchStatus = this.getFetchStatus.bind(this);
-    this.getSearchStatus = this.getSearchStatus.bind(this);
+    this.showMoreClick = this.showMoreClick.bind(this);
   }
 
-  componentWillMount() {
-    this.props.getBeers();
+  showMoreClick() {
+    this.props.setHomeBeers();
   }
 
-  /**
-   * 
-   * @description check for search result
-   * null: no search triggered
-   * [] : no search result
-   * [...]: search result available
-   */
-  getSearchStatus() {
-    const { searchResults } = this.props;
+  pageView() {
+    const { beers, homeBeerIds } = this.props;
+    const homeBeers = homeBeerIds.map(id => beers[id]);
 
-    if (!Array.isArray(searchResults)) {
-      return null;
-    }
-
-    if (!searchResults.length) return {
-      type: 'empty',
-      text: 'No results for search query'
-    }
-
-    return true;
-  }
-
-  getFetchStatus() {
-    const { allBeers: beers } = this.props;
-    let text, type = null;
-
-    if (beers === null) {
-      type = 'loading';
-      text = 'Loading all beers'
-    }
-
-    else if (beers === false) {
-      type = 'error';
-      text = 'Error occured while fetching beers'
-    }
-
-    else if (!Array.isArray(beers) || !beers.length) {
-      type = 'empty';
-      text = 'No beers are available in collection'
-    }
-
-    return !type || !text
-      ? true
-      : { text, type }
-  }
-
-  render() {
-    const { allBeers, searchResults } = this.props;
-    let status = this.getSearchStatus();
-    let beers = searchResults;
-
-    if (status === null) {
-      status = this.getFetchStatus();
-      beers = allBeers;
-    }
-  
     return (
       <div id="home">
-        {
-          status === true
-            ? <BeersList beers={beers} />
-            : (
-              <div id="loader-wrap">
-                <Status
-                  type={status.type}
-                  text={status.text}
-                />
-              </div>
-            )
-        }
+        <BeersList
+          beers={homeBeers}
+        />
+
+        { (Object.keys(beers).length > homeBeerIds.length) && (
+          <button
+            type="text"
+            onClick={this.showMoreClick}
+            id="show-more"
+          >
+            Show More
+          </button>
+        ) }
       </div>
     );
   }
-};
 
-const mapStateToProps = ({
-  beersReducer: { beers },
-  searchReducer: { home }
-}) => ({
-  allBeers: beers,
-  searchResults: home
+  render() {
+    return (
+      <PageWrap>
+        { this.pageView() }
+      </PageWrap>
+    );
+  }
+}
+
+
+const mapStateToProps = ({ beersReducer }) => ({
+  beers: beersReducer.beers,
+  homeBeerIds: beersReducer.homeBeerIds
 });
 
-const mapDispatchToProps = { getBeers };
+const mapDispatchToProps = { setHomeBeers };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

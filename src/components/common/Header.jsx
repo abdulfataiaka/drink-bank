@@ -15,59 +15,59 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    history.listen(() => {
-      this.setState({ query: '' });
-      this.props.updateSearchResult(null, true);
-    });
+    // history.listen(() => {
+    //   this.setState({ query: '' });
+    //   this.props.updateSearchResult(null, true);
+    // });
   }
 
   getPage() {
-    const { location: { pathname }} = history;
+    // const { location: { pathname }} = history;
 
-    if (pathname === '/favourite') {
-      return 'favourite';
-    }
+    // if (pathname === '/favourite') {
+    //   return 'favourite';
+    // }
 
-    return 'home'
+    // return 'home'
   }
 
   getSearchProps() {
-    const page = this.getPage();
-    const { allBeers, allFavourites } = this.props;
+    // const page = this.getPage();
+    // const { allBeers, allFavourites } = this.props;
 
-    return {
-      page,
-      beers: (
-        page === 'favourite'
-          ? allFavourites
-          : allBeers
-      )
-    }
+    // return {
+    //   page,
+    //   beers: (
+    //     page === 'favourite'
+    //       ? allFavourites
+    //       : allBeers
+    //   )
+    // }
   }
 
   search(query) {
-    const { page, beers } = this.getSearchProps();
-    let value;
+    // const { page, beers } = this.getSearchProps();
+    // let value;
 
-    if (query.trim() === '') {
-      value = null;
-    }
+    // if (query.trim() === '') {
+    //   value = null;
+    // }
     
-    else {
-      const match = new RegExp(`^${query.toLowerCase()}`);
-      value = beers.filter((beer => (
-        beer.name.toLowerCase().match(match) ||
-        beer.tagline.toLowerCase().match(match)
-      )));
-    }
+    // else {
+    //   const match = new RegExp(`^${query.toLowerCase()}`);
+    //   value = beers.filter((beer => (
+    //     beer.name.toLowerCase().match(match) ||
+    //     beer.tagline.toLowerCase().match(match)
+    //   )));
+    // }
 
-    this.props.updateSearchResult(value, page);
+    // this.props.updateSearchResult(value, page);
   }
 
   onChange(event) {
-    const { target: { value } } = event;
-    this.setState({ query: value });
-    this.search(value);
+    // const { target: { value } } = event;
+    // this.setState({ query: value });
+    // this.search(value);
   }
 
   render() {

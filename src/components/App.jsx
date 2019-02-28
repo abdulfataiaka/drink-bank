@@ -4,12 +4,12 @@ import Favorite from './Favorite/Index';
 import Home from './Home/Index';
 import Nav from './common/Nav';
 import Header from './common/Header';
-import BeerModal from './BeerModal/Index';
+// import BeerModal from './BeerModal/Index';
 import '../stylesheets/main.scss';
 
 const App = () => (
   <Fragment>
-    <BeerModal />
+    {/* <BeerModal /> */}
     <Nav />
     <Header />
 

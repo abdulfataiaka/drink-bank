@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import BeersList from '../common/BeersList';
 
-const Favorite = () => (
-  <h1>Favorite Page</h1>
-);
+class Favorite extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default Favorite;
+  render() {
+    const { favourites } = this.props;
+
+    return (
+      <div id="favorites">
+        <BeersList beers={favourites} />
+      </div>
+    );
+  }
+};
+
+const mapStateToProps = ({
+  beersReducer: { favourites }
+}) => ({
+  favourites
+});
+
+const mapDispatchToProps = { };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);

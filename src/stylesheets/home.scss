@@ -1,0 +1,17 @@
+#home {
+  padding-bottom: 50px;
+
+  #show-more {
+    display: block;
+    margin: 10px auto 0;
+    background: $brand-color;
+    border: none;
+    outline: none;
+    padding: 11px 28px;
+    border-radius: 2px;
+    color: white;
+    font-weight: 400;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}
