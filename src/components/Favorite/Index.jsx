@@ -1,29 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BeersList from '../common/BeersList';
 
-class Favorite extends Component {
+import PageWrap from '../common/PageWrap';
+import BeersList from '../common/BeersList';
+import Status from '../common/Status';
+
+class Favourite extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const { favourites } = this.props;
-
+    const { beers, favouritesBeerIds } = this.props;
+    const favouritesBeers = favouritesBeerIds.map(id => beers[id]);
+    
     return (
-      <div id="favorites">
-        <BeersList beers={favourites} />
-      </div>
+      <PageWrap>
+        <div id="favourite">
+          { 
+            favouritesBeers.length
+              ? <BeersList beers={favouritesBeers} />
+              : <Status text="No beer has been added as favourite" type="empty" />
+          } 
+        </div>
+      </PageWrap>
     );
   }
-};
+}
 
-const mapStateToProps = ({
-  beersReducer: { favourites }
-}) => ({
-  favourites
+
+const mapStateToProps = ({ beersReducer }) => ({
+  beers: beersReducer.beers,
+  favouritesBeerIds: beersReducer.favouritesBeerIds
 });
 
-const mapDispatchToProps = { };
+const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
+export default connect(mapStateToProps, mapDispatchToProps)(Favourite);

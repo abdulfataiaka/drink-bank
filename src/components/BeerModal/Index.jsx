@@ -17,13 +17,13 @@ class BeerModal extends Component {
   }
 
   getModalInfo(beerId) {
-    const { beers } = this.props;
+    const { beerIds, beers } = this.props;
     let beer = null;
     let baseBeers = [];
 
-    if (beerId && Array.isArray(beers) && beers.length) {
-      beer = beers.find(beer => `${beer.id}` == `${beerId}`);
-      const index = beers.indexOf(beer) || 0;
+    if (beerId && Array.isArray(beerIds) && beerIds.length) {
+      beer = beers[beerId];
+      const index = beerIds.indexOf(beerId) || 0;
       baseBeers = !!beer ? this.getBaseBeers(index) : []; 
     }
     
@@ -42,9 +42,10 @@ class BeerModal extends Component {
   }
 
   getBaseBeers(index) {
-    const { beers } = this.props;
-    const indexes = this.genIndexes(index, beers.length - 1);
-    return indexes.map(index => beers[index]);
+    const { beers, beerIds } = this.props;
+    const indexes = this.genIndexes(index, beerIds.length - 1);
+    const filteredBeerIds = indexes.map(index => beerIds[index]);
+    return filteredBeerIds.map(beerId => beers[beerId]);
   }
 
   render() {
@@ -63,10 +64,11 @@ class BeerModal extends Component {
 
 const mapStateToProps = ({
   modalReducer: { beerId },
-  beersReducer: { beers }
+  beersReducer: { beers, beerIds }
 }) => ({
   beerId,
-  beers
+  beers,
+  beerIds
 });
 
 const mapDispatchToProps = { setBeerId };

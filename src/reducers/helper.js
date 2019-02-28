@@ -1,4 +1,4 @@
-const maxcount = 3;
+const maxcount = 6;
 
 export const updateHomeBeerIds = (beerIds, homeBeerIds) => {
   beerIds = beerIds || [];
@@ -22,6 +22,15 @@ export const updateHomeBeerIds = (beerIds, homeBeerIds) => {
     }
     
   }
+
+  return result;
+}
+
+export const updateFavourites = (favouritesBeerIds, id) => {
+  let result = [ ...favouritesBeerIds ];
+
+  if (!result.includes(id)) result.push(id);
+  else result = result.filter(beerId => beerId !== id);
 
   return result;
 }

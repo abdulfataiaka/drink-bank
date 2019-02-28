@@ -45,6 +45,8 @@
 
     .second-level {
       margin-top: 20px;
+      min-height: 58%;
+      height: 50%;
 
       &:after {
         @include clearfix();
@@ -58,7 +60,7 @@
 
         img {
           display: block;
-          width: 80%;
+          width: 70%;
           margin: 0 auto;
         }
       }

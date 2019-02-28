@@ -4,8 +4,11 @@ import {
   BEERS_FETCH_SUCCESS,
   BEERS_FETCH_LOADING,
   BEERS_FETCH_FAILURE,
-  UPDATE_HOME_BEERS
+  UPDATE_HOME_BEERS,
+  UPDATE_FAVOURITES
 } from '../actions/types';
+
+import { updateFavourites } from './helper';
 
 // beers is set to false if all beers fetch fails
 // beers is set to null if all beers fetch is in progress
@@ -18,6 +21,14 @@ const initial = {
 
 export default (state = initial, action) => {
   switch(action.type) {
+    case UPDATE_FAVOURITES: return {
+      ...state,
+      favouritesBeerIds: updateFavourites(
+        state.favouritesBeerIds,
+        action.id, action.add
+      )
+    }
+
     case UPDATE_HOME_BEERS: return {
       ...state,
       homeBeerIds: updateHomeBeerIds(
@@ -34,12 +45,12 @@ export default (state = initial, action) => {
 
     case BEERS_FETCH_FAILURE: return {
       ...state,
-      beersId: false,
+      beerIds: false,
     }
 
     case BEERS_FETCH_LOADING: return {
       ...state,
-      beersId: null
+      beerIds: null
     }
 
     default: return state;
