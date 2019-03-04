@@ -10,7 +10,14 @@ import { getBeers } from './actions/beers';
 const store = createStore({});
 store.dispatch(getBeers());
 
-store.subscribe(() => { console.log(store.getState()); });
+// store.subscribe(() => {
+//   const beers = store.getState().beersReducer.beers;
+//   if (beers) {
+//     console.log(
+//       Object.values(beers).map(b => b)
+//     );
+//   }
+// });
 
 ReactDOM.render(
   <Router history={history}>

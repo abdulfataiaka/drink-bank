@@ -46,7 +46,6 @@
     .second-level {
       margin-top: 20px;
       min-height: 58%;
-      height: 50%;
 
       &:after {
         @include clearfix();

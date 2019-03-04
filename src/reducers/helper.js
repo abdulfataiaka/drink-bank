@@ -34,3 +34,23 @@ export const updateFavourites = (favouritesBeerIds, id) => {
 
   return result;
 }
+
+export const advancedSearch = (beers, props) => {
+  if (!beers) return null;
+  console.log(Object.values(props));
+  if(!Object.values(props).some(value => value !== null)) {
+    return null;
+  }
+
+  beers = Object.values(beers);
+  let { minIbu, maxIbu } = props;
+
+  if (minIbu !== null && maxIbu < minIbu) {
+    maxIbu = minIbu;
+  }
+
+  return beers.filter(beer => (
+    minIbu !== null && beer.ibu >= minIbu &&
+    maxIbu !== null && beer.ibu <= maxIbu
+  ));
+}

@@ -21,6 +21,19 @@
     color: white;
   }
 
+  div {
+    display: block;
+    text-align: center;
+    margin: 15px 0 0;
+    font-size: 15px;
+    color: white;
+    font-weight: 600;
+
+    a:hover {
+      color: #F1F1F1;
+    }
+  }
+
   input {
     display: block;
     max-width: 380px;
