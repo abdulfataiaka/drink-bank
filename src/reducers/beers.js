@@ -5,7 +5,8 @@ import {
   BEERS_FETCH_LOADING,
   BEERS_FETCH_FAILURE,
   UPDATE_HOME_BEERS,
-  UPDATE_FAVOURITES
+  UPDATE_FAVOURITES,
+  UPDATE_SEARCH_BEERS
 } from '../actions/types';
 
 import { updateFavourites } from './helper';
@@ -16,7 +17,8 @@ const initial = {
   beers: {},
   beerIds: [],
   homeBeerIds: [],
-  favouritesBeerIds: []
+  favouritesBeerIds: [],
+  searchBeerIds: null
 }
 
 export default (state = initial, action) => {
@@ -27,6 +29,11 @@ export default (state = initial, action) => {
         state.favouritesBeerIds,
         action.id, action.add
       )
+    }
+
+    case UPDATE_SEARCH_BEERS: return {
+      ...state,
+      searchBeerIds: action.ids
     }
 
     case UPDATE_HOME_BEERS: return {

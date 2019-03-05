@@ -31,7 +31,7 @@ class Header extends Component {
   }
 
   render() {
-    const { beers, beerIds, favouritesBeerIds } = this.props;
+    const { beers, beerIds, favouritesBeerIds, searchBeerIds } = this.props;
     const { page } = this.state;
 
     return (
@@ -39,19 +39,22 @@ class Header extends Component {
         <h5>The Beer Bank</h5>
         <h6>Find your favourite beer here</h6>
 
-        <SearchField
-          query={this.state.query}
-          setQuery={this.setQuery}
-          beers={beers}
-          beerIds={beerIds}
-          favouritesBeerIds={favouritesBeerIds}
-          updateSearchResult={this.props.updateSearchResult}
-        />
-
         { page != '/search' && (
-          <div>
-            <Link to="/search">Advanced Search</Link>
-          </div>
+          <Fragment>
+            <SearchField
+              query={this.state.query}
+              setQuery={this.setQuery}
+              searchBeerIds={searchBeerIds}
+              beers={beers}
+              beerIds={beerIds}
+              favouritesBeerIds={favouritesBeerIds}
+              updateSearchResult={this.props.updateSearchResult}
+            />
+
+            <div>
+              <Link to="/search">Advanced Search</Link>
+            </div>
+          </Fragment>
         ) }
       </div>
     );
@@ -61,8 +64,18 @@ class Header extends Component {
 
 
 const mapStateToProps = ({
-  beersReducer: { beerIds, favouritesBeerIds, beers }
-}) => ({ beers, beerIds, favouritesBeerIds });
+  beersReducer: {
+    beerIds,
+    favouritesBeerIds,
+    beers,
+    searchBeerIds
+  },
+}) => ({
+  beers,
+  beerIds,
+  favouritesBeerIds,
+  searchBeerIds
+});
 
 const mapDispatchToProps = { updateSearchResult };
 

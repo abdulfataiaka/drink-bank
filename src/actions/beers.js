@@ -6,7 +6,8 @@ import {
   BEERS_FETCH_FAILURE,
   SET_BEER_ID,
   UPDATE_HOME_BEERS,
-  UPDATE_FAVOURITES
+  UPDATE_FAVOURITES,
+  UPDATE_SEARCH_BEERS
 } from './types';
 
 export const setBeerId = id => dispatch => dispatch({
@@ -17,6 +18,11 @@ export const setBeerId = id => dispatch => dispatch({
 export const updateFavourites = id => dispatch => dispatch({
   type: UPDATE_FAVOURITES,
   id
+});
+
+export const updateSearchBeers = ids => dispatch => dispatch({
+  type: UPDATE_SEARCH_BEERS,
+  ids
 });
 
 export const setHomeBeers = () => dispatch => dispatch({

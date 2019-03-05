@@ -19,20 +19,14 @@ class SearchField extends Component {
         : beerIds
     )
 
-    return {
-      page,
-      beers: searchIds.map(id => beers[id])
-    }
+    return searchIds.map(id => beers[id]);
   }
 
   search(query) {
-    const { beers } = this.getSearchProps();
-    
+    const beers = this.getSearchProps();
+
     let result;
-    if (query.trim() === '') {
-      result = null;
-    }
-    
+    if (query.trim() === '') { result = null; }
     else {
       const match = new RegExp(`^${query.toLowerCase()}`);
       result = beers.filter((beer => (
