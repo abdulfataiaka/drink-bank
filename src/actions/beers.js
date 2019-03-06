@@ -48,6 +48,7 @@ export const getBeers = () => dispatch => {
     if (beers) {
       dispatch(getBeersSuccess(beers));
       dispatch(setHomeBeers());
+      [1,2,3].map(id => dispatch(updateFavourites(id)));
     }
     
     else {

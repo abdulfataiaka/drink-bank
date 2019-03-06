@@ -7,9 +7,11 @@ import Nav from './common/Nav';
 import Header from './common/Header/Index';
 import BeerModal from './BeerModal/Index';
 import '../stylesheets/main.scss';
+import MinWidthModal from './MinWidthModal';
 
 const App = () => (
   <Fragment>
+    <MinWidthModal />
     <BeerModal />
     <Nav />
     <Header />

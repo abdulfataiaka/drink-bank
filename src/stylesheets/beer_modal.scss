@@ -1,33 +1,12 @@
 #beer-modal {
-  $z-index: 2000;
-  position: fixed;
-  z-index: $z-index;
-
-  .overlay {
-    display: block;
-    position: fixed;
-    left: 0; top: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0.5;
-    z-index: $z-index;
-  }
-
   .whitebox {
-    display: block;
-    position: fixed;
     left: calc((100% - 640px) / 2);
     top: 1%;
     padding: 20px;
     width: 600px;
     height: calc(98% - 40px);
-    background: white;
-    z-index: $z-index + 1;
-    border-radius: 5px;
-    overflow-x: hidden;
-    overflow-y: auto;
-
+    border-radius: 3px;
+    
     .top-level {
       display: block;
       text-align: right;

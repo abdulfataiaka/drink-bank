@@ -27,7 +27,7 @@ export default (state = initial, action) => {
       ...state,
       favouritesBeerIds: updateFavourites(
         state.favouritesBeerIds,
-        action.id, action.add
+        action.id
       )
     }
 

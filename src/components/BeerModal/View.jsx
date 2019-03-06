@@ -3,7 +3,7 @@ import BeerCard from '../common/BeerCard';
 import Main from './Main';
 
 const View = ({ beer, onClose, baseBeers }) => (
-  <div id="beer-modal" style={{ display: `${!!beer ? 'block': 'none'}` }}>
+  <div id="beer-modal" className="modal" style={{ display: `${!!beer ? 'block': 'none'}` }}>
     <div className="overlay" />
     <div className="whitebox">
       <div className="top-level">

@@ -46,7 +46,8 @@ module.exports = {
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   setupFiles: [
-    "<rootDir>/specs/support/enzyme.js"
+    "<rootDir>/specs/support/enzyme.js",
+    "<rootDir>/specs/support/jsdom.js"
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
