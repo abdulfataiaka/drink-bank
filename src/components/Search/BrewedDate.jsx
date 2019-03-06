@@ -33,7 +33,7 @@ class BrewedDate extends Component {
     const yearArr = Array(50).fill(1);
 
     return (
-      <div>
+      <div className="date-group">
         <select
           name="month"
           onChange={this.dateChange}
@@ -49,7 +49,9 @@ class BrewedDate extends Component {
             </option>
           )) }
         </select>
-
+        
+        <span>-</span>
+        
         <select
           name='year'
           onChange={this.dateChange}

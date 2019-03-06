@@ -34,29 +34,27 @@ class Header extends Component {
     const { beers, beerIds, favouritesBeerIds, searchBeerIds } = this.props;
     const { page } = this.state;
 
-    return (
-      <div id="header">
-        <h5>The Beer Bank</h5>
-        <h6>Find your favourite beer here</h6>
+    return page === '/search' ? null : (
+      <Fragment>
+        <div id="header">
+          <h5>The Beer Bank</h5>
+          <h6>Find your favourite beer here</h6>
 
-        { page != '/search' && (
-          <Fragment>
-            <SearchField
-              query={this.state.query}
-              setQuery={this.setQuery}
-              searchBeerIds={searchBeerIds}
-              beers={beers}
-              beerIds={beerIds}
-              favouritesBeerIds={favouritesBeerIds}
-              updateSearchResult={this.props.updateSearchResult}
-            />
+          <SearchField
+            query={this.state.query}
+            setQuery={this.setQuery}
+            searchBeerIds={searchBeerIds}
+            beers={beers}
+            beerIds={beerIds}
+            favouritesBeerIds={favouritesBeerIds}
+            updateSearchResult={this.props.updateSearchResult}
+          />
 
-            <div>
-              <Link to="/search">Advanced Search</Link>
-            </div>
-          </Fragment>
-        ) }
-      </div>
+          <div>
+            <Link to="/search">Advanced Search</Link>
+          </div>
+        </div>
+      </Fragment>
     );
   }
 }

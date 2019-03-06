@@ -78,11 +78,11 @@ class Fields extends Component {
     this.onChange(name, date);
   }
 
-  inputField(name) {
+  inputField(name, placeholder=null) {
     return (
       <input
         type="text"
-        placeholder={name}
+        placeholder={placeholder ? placeholder : name}
         name={name}
         value={this.state[name]}
         onChange={this.fieldChange}
@@ -93,31 +93,54 @@ class Fields extends Component {
   render() {
     return (
       <div id="fields">
+        <span className="label">Search Query</span>
+  
         <input
           type="text"
           value={this.state.query}
           name="query"
+          id="search-field"
+          placeholder="Enter search query"
           onChange={this.fieldChange}
         />
 
+        <span className="label">Brewed Before</span>
+        
         <BrewedDate
           name="brewedBefore"
           onChange={this.dateChange}
         />
         
+        <span className="label">Brewed After</span>
+
         <BrewedDate
           name="brewedAfter"
           onChange={this.dateChange}
         />
 
-        { this.inputField('minEbc') }
-        { this.inputField('maxEbc') }
+        <span className="label">EBC Range</span>
 
-        { this.inputField('minAbv') }
-        { this.inputField('maxAbv') }
+        <div className="field-group">
+          { this.inputField('minEbc', 'Min') }
+          <span>-</span>
+          { this.inputField('maxEbc', 'Max') }
+        </div>
 
-        { this.inputField('minIbu') }
-        { this.inputField('maxIbu') }
+        <span className="label">ABV Range</span>
+        
+        <div className="field-group">
+          { this.inputField('minAbv', 'Min') }
+          <span>-</span>
+          { this.inputField('maxAbv', 'Max') }
+        </div>
+        
+        <span className="label">IBU Range</span>
+        
+        <div className="field-group">
+          { this.inputField('minIbu', 'Min') }
+          <span>-</span>
+          { this.inputField('maxIbu', 'Max') }
+        </div>
       </div>
     );
   }

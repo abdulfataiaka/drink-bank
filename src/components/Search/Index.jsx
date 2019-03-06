@@ -23,13 +23,17 @@ class Search extends Component {
     return (
       <div id="search">
         <Fields beers={beers} />
-        <PageWrap>
-          { 
-            searchBeers.length
-              ? <BeersList beers={searchBeers} />
-              : <Status text="No results for search parameters" type="empty" />
-          } 
-        </PageWrap>
+        <div id="search-right">
+          <div id="content">
+            <PageWrap>
+              { 
+                searchBeers.length
+                  ? <BeersList beers={searchBeers} />
+                  : <Status text="No results for search parameters" type="empty" />
+              } 
+            </PageWrap>
+          </div>
+        </div>
       </div>
     );
   }
