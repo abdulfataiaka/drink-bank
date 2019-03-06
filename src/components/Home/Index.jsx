@@ -22,9 +22,7 @@ class Home extends Component {
 
     return (
       <div id="home">
-        <BeersList
-          beers={homeBeers}
-        />
+        <BeersList beers={homeBeers} />
 
         { (Object.keys(beers).length > homeBeerIds.length) && (
           <button

@@ -9,7 +9,7 @@ const NavWrap = (
   </BrowserRouter>
 );
 
-describe('MinWidthModal Component', () => {
+describe('Nav Component', () => {
   it('should render component', () => {
     const wrapper = shallow(NavWrap);
     const html = wrapper.html().toLowerCase();

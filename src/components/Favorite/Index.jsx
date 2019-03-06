@@ -13,7 +13,7 @@ class Favourite extends Component {
   render() {
     const { beers, favouritesBeerIds } = this.props;
     const favouritesBeers = favouritesBeerIds.map(id => beers[id]);
-    
+    console.log(beers);
     return (
       <PageWrap>
         <div id="favourite">

@@ -22,29 +22,31 @@ class BeerCard extends Component {
   render(){
     const { id, name, modal, image, tagline, favouritesBeerIds } = this.props;
     const isFavourite = favouritesBeerIds.includes(id);
-
+    
     return (
       <a onClick={(event) => this.cardClickHandle(event, id)}>
-        { modal === true ? (
-          <div className="modal-beer">
-            <img src={image} />
-            <span>{ name }</span>
-          </div>
-        ) : ( 
-          <div className="beer-card">
-            <button type="button" onClick={(event) => this.favouriteHandle(event, id)}>
-              {
-                isFavourite
-                  ? <i className="fas fa-star" />
-                  : <i className="far fa-star" />
-              }
-            </button>
+        {
+          modal === true
+            ? (
+              <div className="modal-beer">
+                <img src={image} />
+                <span>{ name }</span>
+              </div>
+            ) : ( 
+              <div className="beer-card">
+                <button type="button" onClick={(event) => this.favouriteHandle(event, id)}>
+                  {
+                    isFavourite
+                      ? <i className="fas fa-star" />
+                      : <i className="far fa-star" />
+                  }
+                </button>
 
-            <img src={image} />
-            <h5>{ name }</h5>
-            <h6>{ tagline }</h6>
-          </div>
-        )}
+                <img src={image} />
+                <h5>{ name }</h5>
+                <h6>{ tagline }</h6>
+              </div>
+            )}
       </a>
     );
   }
