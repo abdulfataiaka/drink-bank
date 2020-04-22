@@ -10,7 +10,7 @@ describe('BeersList Component', () => {
     expect(wrapper.find(BeerCard).length).toBe(0);
   });
 
-  it('should render two beers', () => {
+  it('should render one beers', () => {
     const beers = [ ...mocks.beers ];
     const wrapper = shallow(<BeersList beers={beers} />);
     expect(wrapper.find(BeerCard).length).toBe(1);
