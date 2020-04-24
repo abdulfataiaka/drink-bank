@@ -22,6 +22,7 @@ class BrewedDate extends Component {
     const { target: { name, value }} = event;
     let reformed = parseInt(value) || 0;
     reformed = reformed === 0 ? null : reformed;
+    // From my view the two logic above is as good as  let reformed = parseInt(value) || null;
     const newState = { ...this.state, [name]: reformed };
     this.setState({ [name]: reformed });
     onChange(fieldName, newState);
@@ -34,13 +35,14 @@ class BrewedDate extends Component {
 
     return (
       <div className="date-group">
+        // Always use a form library
         <select
           name="month"
           onChange={this.dateChange}
           value={!month ? 0 : month }
         >
           <option value={0}>MM</option>
-          { monArr.map((_, index) => (
+          { monArr.map((_, index) => ( // This is weird, why dont you map on the month itself
             <option
               key={index}
               value={index+1}
@@ -55,7 +57,7 @@ class BrewedDate extends Component {
         <select
           name='year'
           onChange={this.dateChange}
-          value={!year ? 0 : year}
+          value={!year ? 0 : year} // Avoid negative logic as much as possible {year? year : 0} or {year || 0}
         >
           <option value="0">YYYY</option>
           { yearArr.map((_, index) => (

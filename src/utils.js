@@ -3,7 +3,7 @@ import history from './history';
 export const onPageChange = (callback) => {
   let currentPage = history.location.pathname;
 
-  history.listen((newloc) => {
+  history.listen((newloc) => { // newLocation dont abbreviate variable names
     const prevPage = currentPage;
     const nextPage = newloc.pathname;
     currentPage = nextPage;

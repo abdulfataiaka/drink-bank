@@ -12,7 +12,7 @@ import {
 
 export const setBeerId = id => dispatch => dispatch({
   type: SET_BEER_ID,
-  beerId: id || null
+  beerId: id || null // Use default parameters
 });
 
 export const updateFavourites = id => dispatch => dispatch({
@@ -51,7 +51,7 @@ export const getBeers = () => dispatch => {
       [1,2,3].map(id => dispatch(updateFavourites(id)));
     }
     
-    else {
+    else { // Avoid else as much as possible, always return early
       dispatch(getBeersFail());
     }
   });

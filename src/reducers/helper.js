@@ -1,7 +1,7 @@
-const maxcount = 6;
+const maxcount = 6; // Max count of what and by convetion this should be MAX_COUNT
 
 export const updateHomeBeerIds = (beerIds, homeBeerIds) => {
-  beerIds = beerIds || [];
+  beerIds = beerIds || []; // use default parameters as much as possible
   homeBeerIds = homeBeerIds || [];
 
   let index;
@@ -11,6 +11,7 @@ export const updateHomeBeerIds = (beerIds, homeBeerIds) => {
   
   const result = [ ...homeBeerIds ];
   
+  // Use Array HOFs here, It makes code easy to read since it is declarative
   for(index=curIndex; index < beerIds.length; index++) {
     if (addcount >= maxcount) break;
 
@@ -29,7 +30,7 @@ export const updateHomeBeerIds = (beerIds, homeBeerIds) => {
 export const updateFavourites = (favouritesBeerIds, id) => {
   let result = [ ...favouritesBeerIds ];
 
-  if (!result.includes(id)) result.push(id);
+  if (!result.includes(id)) result.push(id); // return early no `else`
   else result = result.filter(beerId => beerId !== id);
 
   return result;

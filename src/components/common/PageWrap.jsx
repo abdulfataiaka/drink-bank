@@ -45,7 +45,7 @@ class PageWrap extends Component {
       text = 'No beers are available in collection'
     }
 
-    return !type || !text ? true : { text, type }
+    return !type || !text ? true : { text, type } // This is called return type marshalling: suggestion do the boolean handling in another function
   }
 
   render() {

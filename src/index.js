@@ -8,7 +8,7 @@ import createStore from './store';
 import { getBeers } from './actions/beers';
 
 const store = createStore({});
-store.dispatch(getBeers());
+store.dispatch(getBeers()); // Should be in your root component ComponentDidMount
 
 ReactDOM.render(
   <Router history={history}>

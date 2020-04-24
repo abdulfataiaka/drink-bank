@@ -6,13 +6,13 @@ import View from './View';
 class BeerModal extends Component {
   constructor(props) {
     super(props);
-    this.onClose = this.onClose.bind(this);
+    this.onClose = this.onClose.bind(this); // Use arrow function defination to bind to the class
     this.getBaseBeers = this.getBaseBeers.bind(this);
     this.getModalInfo = this.getModalInfo.bind(this);
     this.genIndexes = this.genIndexes.bind(this);
   }
 
-  onClose() {
+  onClose() { // What is closing
     this.props.setBeerId(null);
   }
 

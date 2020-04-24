@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSearchBeers } from '../../actions/beers';
-import { toNum, advancedSearch } from '../../utils';
+import { toNum, advancedSearch } from '../../utils'; // Shouldn;t place fucntions used in one place in the project utiles folder
 import BrewedDate from './BrewedDate';
 
 class Fields extends Component {
