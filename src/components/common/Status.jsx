@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 const Status = ({ type, text }) => {
-  text = typeof text != 'string' ? null : text.trim();
+  text = typeof text != 'string' ? null : text.trim(); // This is a function used by you, so you should have control over the input so all the params streamlining should be minimized
 
   return (
     <div className="status-wrap">

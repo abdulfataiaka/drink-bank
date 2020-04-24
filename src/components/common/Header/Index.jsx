@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import SearchField from './SearchField';
 import { updateSearchResult } from '../../../actions/search';
 import { onPageChange, getPage } from '../../../utils';
-
+// CBTT
 class Header extends Component {
   constructor(props) {
     super(props);
     this.setQuery = this.setQuery.bind(this);
-    this.state = {
+    this.state = { // Move this to the instance and with my previous comment about arrow function then you will not need this constructor
       query: '',
       page: null
     }

@@ -23,12 +23,12 @@ class SearchField extends Component {
   }
 
   search(query) {
-    const beers = this.getSearchProps();
+    const beers = this.getSearchProps(); // Your function name and stored name are not aligned so it is either ` const searchProps = this.getSearchProps();` or ` const beers = this.getBeers(); `
 
     let result;
     if (query.trim() === '') { result = null; }
-    else {
-      const match = new RegExp(`^${query.toLowerCase()}`);
+    else { // Avoid the else statement as much as possible refactor your code to use return
+      const match = new RegExp(`^${query.toLowerCase()}`); // Avoid regex as much as possible it appeas you could use `.startsWith`
       result = beers.filter((beer => (
         beer.name.toLowerCase().match(match) ||
         beer.tagline.toLowerCase().match(match)

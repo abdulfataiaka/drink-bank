@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { getPage } from '../../utils';
 
+// This your getPage() exposes the gap in your knowledge of this.props.match available to route components
 const Nav = () => (
   <Fragment>
     <div id="nav" className={ getPage() === '/search' ? 'search': '' }>
@@ -12,7 +13,7 @@ const Nav = () => (
       <Link to="/favourite"><span>FAVOURITE</span></Link>
       <Link to="/"><span>HOME</span></Link>
     </div>
-    <div id="spacer" className={ getPage() === '/search' ? 'search': '' } />
+    <div id="spacer" className={ getPage() === '/search' ? 'search': '' } /> //Dont repeat logic `getPage() === '/search'` three times 
   </Fragment>
 );
 

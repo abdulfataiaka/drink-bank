@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MinWidthModal = () => (
+const MinWidthModal = () => ( // Is this a specification
   <div className="modal" id="min-width-modal">
     <div className="overlay" />
     <div className="whitebox">

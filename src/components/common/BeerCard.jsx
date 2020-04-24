@@ -10,7 +10,7 @@ class BeerCard extends Component {
   }
 
   favouriteHandle(event, id) {
-    event.stopPropagation();
+    event.stopPropagation(); // You should refactor your UI to avoid this
     this.props.updateFavourites(id);
   }
 
@@ -26,7 +26,7 @@ class BeerCard extends Component {
     return (
       <a onClick={(event) => this.cardClickHandle(event, id)}>
         {
-          modal === true
+          modal
             ? (
               <div className="modal-beer">
                 <img src={image} />

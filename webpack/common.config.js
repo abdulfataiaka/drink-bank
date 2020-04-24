@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+// I hope you are using create-react-app for other projects
 module.exports = {
   entry: './src/index.js',
   output: {

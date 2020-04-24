@@ -3,6 +3,7 @@ import BeerCard from '../common/BeerCard';
 import Main from './Main';
 
 const View = ({ beer, onClose, baseBeers }) => (
+  // if you are using id in react then you are doing something very wrong
   <div id="beer-modal" className="modal" style={{ display: `${!!beer ? 'block': 'none'}` }}>
     <div className="overlay" />
     <div className="whitebox">
@@ -17,7 +18,7 @@ const View = ({ beer, onClose, baseBeers }) => (
       <div className="base">
         <h5>You might also like:</h5>
         <div>
-          { baseBeers.map(rBeer => (
+          { baseBeers.map(rBeer => ( // Why not baseBeer
             <BeerCard
               modal
               key={rBeer.id}

@@ -5,7 +5,7 @@ import PageWrap from '../common/PageWrap';
 import BeersList from '../common/BeersList';
 
 import { setHomeBeers } from '../../actions/beers';
-
+// Checked
 class Home extends Component {
   constructor(props) {
     super(props);

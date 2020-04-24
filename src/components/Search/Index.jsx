@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import PageWrap from '../common/PageWrap';
 import BeersList from '../common/BeersList';
 import Status from '../common/Status';
+// Use and index file in `./common`
+// The you will be able to do import {PageWrap, BeerlIst, Status} from './common'
 import Fields from './Fields';
 
 class Search extends Component {
-  constructor(props) {
+  constructor(props) { // Needless constructor
     super(props);
   }
 
@@ -22,14 +24,14 @@ class Search extends Component {
 
     return (
       <div id="search">
-        <Fields beers={beers} />
-        <div id="search-right">
+        <Fields beers={beers} /> // Too generic a name
+        <div id="search-right"> // Use classes to add css not ids
           <div id="content">
             <PageWrap>
               { 
                 searchBeers.length
                   ? <BeersList beers={searchBeers} />
-                  : <Status text="No results for search parameters" type="empty" />
+                  : <Status text="No results for search parameters" type="empty" /> // `Status` is too generic a name for a component
               } 
             </PageWrap>
           </div>
