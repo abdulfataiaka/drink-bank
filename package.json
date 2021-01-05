@@ -47,7 +47,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "connect": "^3.6.6",
     "history": "^4.7.2",
     "react": "^16.8.2",
